@@ -1,15 +1,13 @@
 name: Security Scan
 on: [push]
+
 jobs:
-  scan:
+  checkov-job:
     runs-on: ubuntu-latest
+    container:
+      image: bridgecrew/checkov:latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      - name: Install Checkov
-        run: pip install checkov
-      - name: Run Scan
-        run: checkov -d .
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Run Checkov scan
+        run: checkov -d /github/workspace
