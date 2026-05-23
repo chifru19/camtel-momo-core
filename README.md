@@ -31,6 +31,3 @@ The platform is built on modular, decoupled components to allow for seamless sca
 
 ## Live System Dashboard
 ![Dashboard Preview](assets/dashboard.jpg)
-
-## Security Status
-![Security Scan](https://github.com/chifru19/camtel-mono-core/actions/workflows/security.yml/badge.svg)

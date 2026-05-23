@@ -1,13 +1,14 @@
 name: Security Scan
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  checkov-job:
+  checkov-scan:
     runs-on: ubuntu-latest
     container:
       image: bridgecrew/checkov:latest
     steps:
-      - name: Checkout repo
+      - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Run Checkov scan
-        run: checkov -d /github/workspace --framework sast_python --soft-fail
+      
+      - name: Run Scan
+        run: checkov -d /github/workspace --soft-fail
