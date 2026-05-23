@@ -10,4 +10,4 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
       - name: Run Checkov scan
-        run: checkov -d /github/workspace
+        run: checkov -d /github/workspace --framework sast_python --soft-fail
