@@ -28,3 +28,5 @@ The platform is built on modular, decoupled components to allow for seamless sca
 
 ---
 *Built for resilient rural infrastructure.*
+## Live System Dashboard
+![Dashboard Preview](assets/dashboard.jpg)
