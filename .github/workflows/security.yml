@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      
+
       - name: Run Scan
         run: checkov -d /github/workspace --soft-fail
