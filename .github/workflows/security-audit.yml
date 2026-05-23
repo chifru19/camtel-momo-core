@@ -1,0 +1,19 @@
+name: Security Audit Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  checkov-job:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run Checkov action
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: .
+          framework: python
+          soft_fail: true
