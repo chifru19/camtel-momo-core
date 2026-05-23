@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel, Field
 from backend.core.service import transfer_funds
+from backend.core.reconciliation import generate_daily_report
 
 app = FastAPI(title="Camtel MoMo Core API")
 
@@ -19,3 +20,7 @@ async def execute_transfer(request: TransferRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception:
         raise HTTPException(status_code=500, detail="Transaction failed")
+
+@app.get("/api/v1/audit/reconciliation", tags=["Admin"])
+async def get_daily_reconciliation():
+    return generate_daily_report()
